@@ -42,8 +42,27 @@ MUL: '*';
 ASSIGNMENT_OPERATOR: ':=';
 
 
-
-
 //--- PARSER: ---
-stylesheet: EOF;
+//Basic
+stylesheet: (variableassignment|stylerule)* EOF;
+selector: ID_IDENT #idSelector |CLASS_IDENT #classSelector|LOWER_IDENT #tagSelector|CAPITAL_IDENT #tagSelector;
+literal: COLOR #colorliteral|PIXELSIZE #pixelliteral|bool #boolliteral|PERCENTAGE #percentageliteral|SCALAR #scalarliteral;
 
+//Level 0 Stylerule
+stylerule: selector body;
+body: OPEN_BRACE (decleration|ifstatement)* CLOSE_BRACE;
+decleration: propertyname COLON expression SEMICOLON;
+propertyname: LOWER_IDENT;
+
+//Level 1 Variable assignment
+variableassignment: variablereference ASSIGNMENT_OPERATOR expression SEMICOLON;
+variablereference: CAPITAL_IDENT;
+
+//Level 2 Expression
+expression: literal #literalexpression|variablereference #variableexpression|expression MUL expression #multiplication|expression PLUS expression #addition|expression MIN expression #subtraction;
+
+//Level 3 If-statement
+ifstatement: IF BOX_BRACKET_OPEN condition BOX_BRACKET_CLOSE body elsestatement*;
+elsestatement: ELSE body;
+condition: bool|variablereference;
+bool: TRUE|FALSE;

@@ -5,15 +5,17 @@ import nl.han.ica.icss.ast.AST;
 import nl.han.ica.icss.ast.types.ExpressionType;
 
 import java.util.HashMap;
-
+import java.util.LinkedList;
 
 
 public class Checker {
 
-    private IHANLinkedList<HashMap<String, ExpressionType>> variableTypes;
+    // private IHANLinkedList<HashMap<String, ExpressionType>> variableTypes;
+    private LinkedList<HashMap<String, ExpressionType>> variableTypes;
 
     public void check(AST ast) {
         // variableTypes = new HANLinkedList<>();
+        variableTypes = new LinkedList<>();
 
     }
 
