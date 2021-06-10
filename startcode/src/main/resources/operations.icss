@@ -1,0 +1,26 @@
+Bool := TRUE;
+Color := #ff0000;
+Percentage := 50%;
+Pixel := 500px;
+Scalar := 500;
+
+#operations {
+    bool: Bool;
+    color: Color;
+    adding2pixels: Pixel + Pixel;
+    adding2scalars: Scalar + Scalar;
+    adding2percentages: Percentage + Percentage;
+    multiplying2scalars: Scalar * Scalar;
+    multiplyingpixelandscalar: Pixel * Scalar;
+    multiplyingpercentageandscalar: Percentage * Scalar;
+    correcttest: Pixel + Pixel * Scalar;
+    correcttest: Pixel * Scalar * Scalar + Pixel;
+    erroraddingboolandscalar: Bool + Scalar;
+    erroraddingcolorandscalar: Color + Scalar;
+    errormultiplyingboolandscalar: Bool * Scalar;
+    errormultiplyingcolorandscalar: Color * Scalar;
+    errormultiplying2pixels: Pixel * Pixel;
+    errormultiplying2percentages: Percentage * Percentage;
+    errortest: Pixel + Scalar * Scalar;
+    errortestreversed: Scalar * Scalar + Pixel;
+}

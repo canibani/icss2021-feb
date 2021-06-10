@@ -37,7 +37,7 @@ CLOSE_BRACE: '}';
 SEMICOLON: ';';
 COLON: ':';
 PLUS: '+';
-MIN: '-';
+MIN: '-' ;
 MUL: '*';
 ASSIGNMENT_OPERATOR: ':=';
 
@@ -50,7 +50,7 @@ literal: COLOR #colorliteral|PIXELSIZE #pixelliteral|bool #boolliteral|PERCENTAG
 
 //Level 0 Stylerule
 stylerule: selector body;
-body: OPEN_BRACE (decleration|ifstatement)* CLOSE_BRACE;
+body: OPEN_BRACE (variableassignment|decleration|ifstatement)* CLOSE_BRACE;
 decleration: propertyname COLON expression SEMICOLON;
 propertyname: LOWER_IDENT;
 

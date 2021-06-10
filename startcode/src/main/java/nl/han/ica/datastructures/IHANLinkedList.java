@@ -48,4 +48,10 @@ public interface IHANLinkedList<T> {
      * @return number of items in list
      */
     int getSize();
+
+    /**
+     * Adds a new node to the end of the list
+     */
+    void add(T value);
+
 }
